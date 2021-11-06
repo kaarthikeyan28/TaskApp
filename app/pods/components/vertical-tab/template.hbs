@@ -1,0 +1,27 @@
+<div class="vertical-tab vertical-tab-3">
+	<div class="col-md-3 ela-p-null">
+		<div class="enable-scroll ela-h-390">
+			<ul class="nav nav-tabs tabs-left" style="min-height:400px;">
+				{{#each tabData.LIST as |list|}}
+					<li {{action "verticalTabAction" list.ID}} data-tabid={{list.ID}}>
+						<i class="ela-10-inline-icon {{list.ICON_CLASS}} pull-left ela-ml-5 ela-mt-9" style="visibility:{{if list.ICON_DISPLAY 'visible' 'hidden'}};"></i>
+						<div class="pull-left ela-ml-5 line-height-14 ela-mt-8">
+							{{list.NAME}}<br> 
+							<span data-showtt="true" data-animation="false" data-container="#ELAEmberIncluder" title="{{list.TOOLTIP}}" data-original-title="{{list.TOOLTIP}}"class="cursor-pointer ela-text-normal ela-text-xsmall ela-ligh-tex ela-lighter-text showtooltip" data-html="true">{{list.BYLINE_TEXT}}</span>
+						</div>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-9 ela-p-null">
+		<div class="tab-content">
+			<div class="tab-pane active" id="windows">
+				<div class="form-horizontal form-group-invert align-left ela-ml-10">
+					{{yield}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

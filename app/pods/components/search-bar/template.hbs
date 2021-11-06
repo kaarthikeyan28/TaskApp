@@ -1,0 +1,20 @@
+<a style="padding:0px;">
+  <div class="searchFromTable {{searchstate}} {{if alwaysOpen 'open alwaysOpen'}}">
+    <i class="ui-icon icn-table-search" {{action "searchopen"}}>
+      {{bs-tooltip data=TOOLTIP}}
+    </i>
+    {{input type="text" class="search-input" value=searchValue key-up="keyUp" placeholder=placeholder}}
+    <span class="icon-close" {{action "searchclose"}}>&times;{{bs-tooltip data=I18N.ember_clear_search}}</span>
+    <button type="submit" class="hidden"></button>
+  </div>
+  <div class="dropdown" style="overflow-y: auto;overflow-x: hidden;width:185px;border:1px;border-color:#f2f2f2;border-style:solid;z-index:950;max-height: 280px;{{if autocompopen "display:block;" "display:none;"}}">
+    {{#each AC_CONTENT as |content|}}
+      <span class="DDcontent searchDD {{if (commons "searchSelect" content selected resultProperties) "searchSelectedDD"}} {{if searchSub 'sub_present'}}" {{action "selected" content}} style="overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;">
+        {{{commons "retrieveSearchResult" content resultProperties searchValue}}}
+        {{#if searchSub}}
+          <span class="search-element-sub">{{searchSub}}</span>
+        {{/if}}
+      </span>
+    {{/each}}
+  </div>
+</a>

@@ -1,0 +1,15 @@
+<div class="btn-group {{className}}">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    <span>{{name}}</span>
+      <i class="ela-icon-10 icn-down-black-arrow-sm"></i>
+  </button>
+  <div class="dropdown-menu">
+    <ul class="ulreset" id="sortColumn" role="menu" >
+        {{#each contents as |content|}}
+            <li {{action "sendToParent" content.action content.key}}>
+                <a><i class="{{content.imgClass}}"></i>{{{content.value}}}</a>
+            </li>
+        {{/each}}
+    </ul>
+  </div>
+</div>

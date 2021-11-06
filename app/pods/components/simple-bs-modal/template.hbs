@@ -1,0 +1,93 @@
+<div class="modal-dialog high-zindex height-auto {{data.class}} {{unless (commons "eqAny" data.type "YIELD" 3 "yield") "modal-xf"}} {{if (commons "eqAny" data.type "YIELD" 3 "yield") "yield-modal"}}">
+  <div class="modal-content">
+
+    {{#if data.customModal}}
+      {{yield}}
+    {{else}}
+
+      {{#simple-bs-modal/header data=data}}
+        <h4 class="modal-title" style="overflow:  hidden;text-overflow:  ellipsis;word-wrap: break-word;">
+          {{data.title}}
+        </h4>
+        {{#if data.backPanel}}
+          <span style="display: inline-block;top: 9px;right: 60px;height: 21px;position: absolute;padding-right: 25px;border-right: 1px solid #ccc;" class="cursor-pointer" {{action "sendBackAction"}}>
+            <i class="glyphicon glyphicon-arrow-left" style="margin-top:4px;font-size:12px;"></i>
+            <span>
+              <a style="margin-left: 1px;">
+                {{I18N.ember_back}}
+              </a>
+            </span>
+          </span>
+        {{/if}}
+      {{/simple-bs-modal/header}}
+	  
+      {{#simple-bs-modal/body data=data}}
+
+        {{#if (commons "eqAny" data.type "YIELD" 3 "yield")}}
+          {{yield data=data}}
+        {{else}}
+
+					{{#if data.NEW_CSS}}
+
+						<table cellpadding="10" align="center" class="ela-mt-20 ela-mb-20 ela-mxw-90p">
+							<tbody>
+								<tr>
+									<td class="ela-pr-10">
+										<i class="ela-icon-20 {{data.icon_class}} ela-mt-1-minus"></i><span class="ela-space-1"></span>
+									</td>
+									<td>
+										{{data.content}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					{{else}}
+	          <div style="position:absolute;top:0px;bottom:0px;left:0px;right:0px;">
+	            <span class="xf-modal-content {{if (commons "eqAny" data.type "ALERT" 3 "alert") "xf-alert"}}">
+	              {{#unless (commons "eqAny" data.type "ALERT" 3 "alert")}}
+	                <span class="disp_icon"><i class="{{data.icon_class}}"></i></span>
+	              {{/unless}}
+	              <span class="disp_content {{if (commons "eqAny" data.type "ALERT" 3 "alert") (concat "alert alert-" data.alert)}}">{{data.content}}</span>
+	            </span>
+	            {{#if (commons "eqAny" data.type "YESNO" 1 "yesno")}}
+	              <button class="btn btn-success" style="width:68px;position:absolute;top:68px;left: 159px;" {{action "sendYesAction"}}>{{I18N.ember_yes}}</button>
+	              <button class="btn btn-default" {{action "closeModal"}} style="width:68px;position:absolute;top: 68px;left: 234px;">{{I18N.ember_no}}</button>
+	            {{/if}}
+	            {{#if (commons "eqAny" data.type "OPERATION" 2 "operation")}}
+	              {{#if data.closeIcon}}
+	                <button class="btn btn-default" style="position:absolute;top:72px;left: 187px;" {{action "closeModal"}}>{{I18N.ember_close}}</button>
+	              {{else}}
+	                <button class="btn btn-default" style="position:absolute;top:72px;left: 187px;" disabled>{{I18N.ember_close}}</button>
+	              {{/if}}
+	            {{/if}}
+	            {{#if (commons "eqAny" data.type "ALERT" 3 "alert")}}
+	              <button class="btn btn-default" style="position:absolute;top:72px;left: 187px;" {{action "closeModal"}}>{{I18N.ember_close}}</button>
+	            {{/if}}
+	          </div>
+					{{/if}}
+
+        {{/if}}
+      {{/simple-bs-modal/body}}
+
+			{{#if data.NEW_CSS}}
+
+					{{#simple-bs-modal/footer}}
+						
+						{{#if (commons "eqAll" data.footerType "CUSTOM")}}
+							{{#each data.customFooter as |footer index|}}
+								<button type="button" class="btn {{footer.class}}" {{action "sendToParent" footer.action}}>{{footer.name}}</button>
+							{{/each}}
+						{{else if (commons "eqAny" data.type "YESNO" 1 "yesno")}}
+							<button type="button" class="btn btn-primary" {{action "sendYesAction"}}>{{I18N.ember_yes}}</button>
+							<button type="button" class="btn btn-default" {{action "closeModal"}}>{{I18N.ember_no}}</button>
+						{{/if}}
+
+					{{/simple-bs-modal/footer}}
+
+			{{/if}}
+
+    {{/if}}
+
+  </div>
+</div>

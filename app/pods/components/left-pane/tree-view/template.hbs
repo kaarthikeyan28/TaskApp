@@ -1,0 +1,44 @@
+<div class="left-navigation enable-scroll mCS-autoHide">
+	{{#if showTree}}
+		<ul id="{{elementId}}treeview" class="lnav_leftpane">
+			{{#each treeData.tree as |layer1 parentIndex|}}
+				{{#if layer1.HASCHILD}}
+	  				<li class="normal_parent"> <a class="parent_element"><div class="elem_name">{{layer1.NAME}}</div></a>
+	  					<ul class="innerScroller">
+	  						{{#each layer1.LIST as |layer2 index|}}
+	  								<li class="single_parent" data-parentIndex={{parentIndex}} data-index={{index}} data-lp-pk={{layer2.ID}}>
+	  									<a class="single_choosable_element">
+												<div class="elem_name">
+	  											{{layer2.NAME}}
+												</div>
+												{{#if showAddOption}}
+													<div class="add_option">
+														{{I18N.ember_add}}
+													</div>
+												{{/if}}
+	  									</a>
+	  								</li>
+	  						{{/each}}
+	  					</ul>
+	  				</li>
+				{{else}}
+						<li class="single_parent" data-parentIndex={{parentIndex}} data-lp-pk={{layer1.ID}}>
+							<a class="single_choosable_element">
+								<div class="elem_name">
+									{{#if layer1.ICON_CLASS}}
+                    <i class="ui-inline-icon {{layer1.ICON_CLASS}} icon-set-component"></i>
+									{{/if}}
+                  {{layer1.NAME}}
+								</div>
+								{{#if showAddOption}}
+									<div class="add_option">
+										{{I18N.ember_add}}
+									</div>
+								{{/if}}
+							</a>
+						</li>
+				{{/if}}
+			{{/each}}
+		</ul>
+	{{/if}}
+</div>

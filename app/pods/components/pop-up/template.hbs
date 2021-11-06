@@ -1,0 +1,7 @@
+{{#if show}}
+  {{#pop-up/pop-layout fixto=fixto parentElemId=elementId isNewCss=isNewCss class=innerClasses  dropup=dropup isCenterAligned=isCenterAligned}}
+  {{#scroll-bar data-height=data-height}}
+    {{yield}}
+  {{/scroll-bar}}
+  {{/pop-up/pop-layout}}
+{{/if}}

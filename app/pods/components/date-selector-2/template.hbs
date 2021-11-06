@@ -1,0 +1,18 @@
+{{#if custom}}
+	<div class="input-group date-range {{className}}">
+		<input type="text" class="form-control date-range" value="" id="{{elementId}}dateRangePicker">
+		<a class="input-group-addon ingrp-addon-icon" {{action 'iconClicked'}}><i class="ela-icon icn-date-range"></i></a>
+	</div>
+{{else if isNewTheme}}
+	<div class="input-group date-group {{className}}"  style="">
+    		<input type="text" value={{chosenLabel}} class="form-control date-range pointer auto-date-width" id="{{elementId}}dateRangePicker" readonly {{action 'setSelectors'}}>
+        <a class="input-group-addon ingrp-addon-icon" id="basic-addon2" {{action 'iconClicked'}}><i class="ela-icon icn-date-range"></i></a>
+    </div>
+{{else}}
+	<div class="input-group" style="max-width: 320px;float: right;display: block;">
+		<input type="text" value={{chosenLabel}} class="form-control date-range pointer" style="width:270px;" id="{{elementId}}dateRangePicker" readonly {{action 'setSelectors'}}>
+		<a {{action 'iconClicked'}} class="ela-newflat input-group-addon" style="padding: 5px; background: #354148;border: 0px !important;width: 20px;cursor: pointer;">
+			<i class="ela-icon icn-date-range" style="margin: -1px;" {{action 'iconClicked'}}></i>
+		</a>
+	</div>
+{{/if}}

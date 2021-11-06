@@ -1,0 +1,13 @@
+{{#if showStyle}}
+<div class="config-sites config-sites-2 ela-table-sub relative">
+	<div class="config-site-header">
+		{{TITLE}}&nbsp;-&nbsp;<span class="">{{FOR}}</span>
+		<button type="button" class="close ela-m-null" data-dismiss="modal" aria-label="Close" {{action "closeAction"}}>
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="config-site-body">
+		{{yield}}
+	</div>
+</div>
+{{/if}}

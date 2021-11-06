@@ -1,0 +1,9 @@
+<div style="{{json.STYLE}}" class="{{json.DIV_CLASS}}" {{action "sendToController" json.DIV_ACTION}}>
+{{#if json.IS_DISABLED}}
+<i class="{{json.CLASS}} icon-set-component" style="opacity:0.7;cursor:default !important;" {{action "sendToController" json.DISABLED_ACTION}}></i>
+<span class="{{json.TEXT_CLASS}} icon-set-text" style="opacity:0.7;cursor:default !important;" {{action "sendToController" json.DISABLED_ACTION}}>{{json.TEXT}}</span>
+{{else}}
+<i class="{{json.CLASS}} icon-set-component" {{action "sendToController" json.ACTION}}></i>
+<span class="{{json.TEXT_CLASS}} icon-set-text" {{action "sendToController" json.ACTION}}>{{json.TEXT}}</span>
+{{/if}}
+</div>

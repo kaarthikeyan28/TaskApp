@@ -1,0 +1,40 @@
+<center>
+<div id="addtasktable">
+
+
+<table class="tab1">
+
+        <h3>Create your Task </h3><br/>
+
+        <tr>
+            <td id="r">Task Name</td>
+            <td>{{input type="text" placeholder="Please enter taskname" value = taskname id="n"}}</td>
+        </tr>      <br/>                
+        <tr>
+            <td id="r">Task Description</td>
+            <td>{{textarea value=taskdescription cols="80" rows="6"}}</td>
+        </tr><br/>
+        <tr>
+            <td id="r">To assign tasks</td>
+            <td>&nbsp;&nbsp;<button {{action "assignto"}} id="but1">Assign to</button></td>
+        </tr><br/>
+        <tr>
+            <td></td>
+            <td><div id="assignuser"></div></td>
+        </tr><br/>
+        <tr>
+        <td><button {{action "createtask"}} id="dow">createtask</button></td>
+        
+        </tr>
+
+        <tr>
+            <br>
+            <br>
+             <div id="logoutadd"><button {{action "logout"}} id="dow1">Logout</button></div>
+        </tr>
+         <br/>
+ </table>
+
+</div>
+</center>
+    

@@ -1,0 +1,15 @@
+{{#if data.label}}
+
+<div class="cbdiv" style="margin:0px;">
+	<input type="checkbox" checked={{data.checked}}>
+	<label class="cbcustom" style="padding:2px 0px 0px 20px;" {{action "labelClicked"}}>{{data.label}}</label>
+</div>
+{{else}}
+	{{input type="checkbox"
+	class="iCheck"
+	checked=data.checked
+	disabled=data.disabled
+	name=data.name
+	tabindex=data.tabindex
+	id=data.id }} 
+{{/if}}

@@ -1,0 +1,18 @@
+{{#if (commons "eqAny" data.isLoading true)}}
+<div class="simple-loading ela-mh-200" >
+	<div class="loading32 ela-pt-70"><img src="../../images/loader-md.gif"></div>
+	<span class="loading-txt">loading data...</span>
+</div>
+{{else if (commons "eqAny" data.hasData false)}}
+	<div class="ela-mh-150">
+		<div class="ela-align-center ela-pt-70">
+			<p>
+				<i class="ela-20-inline-icon icn-info-black  ela-mt-4-minus ela-valign-middle"></i> 
+				<span class="ela-pl-5">No Data Available</span>
+			</p>
+		</div>
+	</div>
+{{/if}}
+<div class="{{if (commons 'eqAny' data.isLoading true)'ela-hide'}} {{if (commons 'eqAny' data.hasData false) 'ela-hide'}}">
+{{yield}}
+</div>

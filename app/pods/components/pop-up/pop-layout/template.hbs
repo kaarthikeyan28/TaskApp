@@ -1,0 +1,10 @@
+{{#if isNewCss}}
+	{{yield}}
+{{else}}
+<div style="text-align:center;height: 10px;">
+  <span class="ui-inline-icon icn-dropdown-arrow-top" style="display:inline-block;z-index: 20;position: relative;"></span>
+</div>
+<div style="border: 1px solid #ccc;box-shadow: 0 6px 12px rgba(0,0,0,.175);margin-bottom:0px;background:#fff;min-height:30px;height:226px;position: relative;">
+  {{yield}}
+</div>
+{{/if}}

@@ -1,0 +1,27 @@
+{{#each tabs as |tab index|}}
+  <li id="bs_tabs_{{tab.id}}" class="{{unless useNav 'nav-item'}} {{if (commons "eqAll" tab.id selected) 'active'}} {{if tab.disabled 'disabled'}} {{tab.class}}" {{action 'clickElement' tab}} role="presentation">
+    {{#unless tab.icon_text}}
+      <a href class="{{unless useNav 'nav-link'}} {{if (commons "eqAll" tab.id selected) 'activated'}}">
+        {{#if wizard}}
+          <span class="step">{{commons "add" index 1}}</span>
+        {{/if}}
+        {{tab.title}}
+        {{#if tab.tooltip_text}}
+            <span class="{{tab.tooltip_class}} ui-inline-icon-space icn-circle-help">{{bs-tooltip data=tab.tooltip_text}}</span>
+        {{/if}}
+      </a>
+    {{/unless}}
+    {{#if tab.icon_text}}
+      <a class="ela-p-null-imp pull-right static-link ela-border-0 ela-mh-auto">{{tab.icon_text}}</a>
+      <i class="ela-inline-icon {{tab.icon_class}}"></i>
+    {{/if}}
+  </li>
+{{/each}}
+
+{{#if tabSettings}}
+		<li class="tabs-rightmost cursor-pointer" {{action "SettingsIcnClicked" tabSettings.ACTION}}>
+			<div class="ela-mt-7-imp ela-ml-5-imp showtooltip" data-toggle="tooltip" data-placement="left" data-original-title="{{tabSettings.TITLE}}" data-showtt='true' data-animation="false" data-container="#ELAEmberIncluder">
+				<i class="ela-inline-icon icn-settings"></i>
+			</div>
+		</li>
+{{/if}}

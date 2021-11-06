@@ -1,0 +1,34 @@
+
+<center> 
+<div class="taskwhole">
+   
+<div id="welcome"></div>
+
+<div class="al">
+<table>
+    <td><strong class="viewt">Filter </strong></td>
+    <td><div id="sel">
+    <select id="selectmethod"> 
+        <option value="all">All</option>   <option value="nottaken">Not taken</option>    <option value="completed">Completed</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    <button {{action "viewtask"}} id="but">Viewtask</button>
+</div></td>
+</table>
+</div>
+<div id="tasktable">
+</div>
+<br>
+<br>
+<div id="updatebutton"><button {{action "selection"}} id="but">update</button></div>
+
+<br>
+<table>
+    <tr>
+        <td><div id="link"><button {{action "addtask"}} id="dow">Addtask</button></div></td>
+        &nbsp; &nbsp; &nbsp; &nbsp; <td><div id="logouttask"><button {{action "logout"}} id="dow1">Logout</button></div></td>
+    </tr>
+
+</table>    
+
+</div>
+</center>

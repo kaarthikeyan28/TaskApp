@@ -1,0 +1,6 @@
+{{#each data.option as |radiodata index|}}
+<div class="radio-inline {{radiodata.classname}}" {{action "changeOption" index}}>
+    <div class="iRadio iradio_minimal {{if (commons "eqAll" data.checked index) 'checked'}}"></div>
+    <span class="ela-block-select checkText cursor-pointer"> {{radiodata.title}}</span>
+</div>
+{{/each}}

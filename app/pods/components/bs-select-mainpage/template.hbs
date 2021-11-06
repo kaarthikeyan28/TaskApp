@@ -1,0 +1,19 @@
+{{#scroll-bar class="site-inner" data-height=height}}
+<table class="table table-hover">
+  <tbody>
+    {{#each data.select as |groupitem|}} {{#each groupitem.option as |item|}}
+    <tr>
+      <td>
+        {{fim/check-box isChecked=item.isChecked onChanged=(action "onCheckClick") data=item.value }}
+        <span class="ela-space-1"></span>
+        <span class="ela-trim-text ela-mxw-200">{{item.title}}</span>
+        {{#if data.action}} {{data.action}} {{/if}}
+        {{#each item.components as |customComponent|}}
+        {{component customComponent.COMP attrsHash=customComponent.ATTRS data=item}}
+        {{/each}}
+      </td>
+    </tr>
+    {{/each}} {{/each}}
+  </tbody>
+</table>
+{{/scroll-bar}}

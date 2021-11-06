@@ -1,0 +1,34 @@
+<div class="ela-scroll-panels {{additionalClasses}}" style="width:100%;height:100%;position:absolute;">
+  <div class="ela-left-panel open">
+    {{#if search}}
+      <div class="left-pane-search">
+        {{search-bar
+          actionReceiver="searchAction"
+          ACTION="optionClicked"
+          AC_ACTION="autoComplete"
+          AC_CONTENT=search.autocompleteList
+          ON_AC_CLEAR="onSearchClear"
+          placeholder=search.placeHolder
+          alwaysOpen=true
+          resultProperties=search.resultProperties
+          closeOnceClicked=searchCloseOnClick
+          searchSub=search.searchSub}}
+          <span class="no_result hidden">{{I18N.ember_no_result_found}}</span>
+          <span class="loading_search hidden">{{I18N.ember_searching}}</span>
+          <span class="search_results hidden"></span>
+      </div>
+    {{/if}}
+    <div class="ela-left-pane-shifter">
+      <div class="ela-left-pane">
+        {{left-pane/tree-view treeData=data accordion=true disableSelection=disableSelection onSelection="onSelection" defaultOpenParent=defaultOpenParent showAddOption=showAddOption}}
+      </div>
+    </div>
+    {{#unless noToggle}}
+      <div class="toggle-btn" {{action "toggleLeftPane"}} style="left: 242px;"></div>
+    {{/unless}}
+  </div>
+  <div class="ela-left-pane-child pane-open">
+      {{yield}}
+      <div class="ela-pane-content-loadingdrop" style="display:none;"></div>
+  </div>
+</div>

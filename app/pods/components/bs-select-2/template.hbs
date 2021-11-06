@@ -1,0 +1,53 @@
+<select id={{data.ID}} showSubtext={{data.show-subtext}} data-dropup-auto={{data.dropupAuto}} data-header={{data.header}} class={{data.class}} onchange={{action "valueChanged" this}} title="{{data.defaultTitle}}" data-width={{data.data-width}}>
+  
+ {{#each data.select as |groupitem|}}
+
+    {{#if (commons "isDefined" groupitem.group)}}
+
+      <optgroup label="{{groupitem.group}}" data-max-options="1">
+        {{#each groupitem.option as |item|}}
+           <option
+             class={{item.class}}
+             style={{item.style}}
+             data-tokens={{item.tokens}}
+             title={{item.title}}
+             value={{item.value}}
+             data-icon={{item.icon}}
+             data-type="option"
+             data-content={{item.content}}
+             data-subtext={{item.subtext}}
+             data-divider={{item.divider}}
+             disabled={{item.disabled}}>
+               {{item.title}}
+            </option>
+        {{/each}}
+        </optgroup>
+
+    {{else}}
+
+      {{#each groupitem.option as |item|}}
+         <option
+           class={{item.class}}
+           style={{item.style}}
+           data-tokens={{item.tokens}}
+           title={{item.title}}
+           value={{item.value}}
+           data-icon={{item.icon}}
+           data-type="option"
+           data-content={{item.content}}
+           data-subtext={{item.subtext}}
+           data-divider={{item.divider}}
+           disabled={{item.disabled}}>
+             {{item.title}}
+          </option>
+      {{/each}}
+
+    {{/if}}
+
+    {{#each groupitem.customactions as |action|}}
+      <option data-icon={{action.icon}} class="selectActionBS {{action.class}} {{if action.default_selected_option "default-select"}}" data-tokens={{action.token}} data-type="action" data-selectable={{action.selectable}} value={{action.action}}>{{action.title}}</option>
+    {{/each}}
+
+ {{/each}}
+
+</select>
