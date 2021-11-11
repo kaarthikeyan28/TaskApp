@@ -2,33 +2,37 @@
 <center> 
 <div class="taskwhole">
    
+   <br><br><br>
 <div id="welcome"></div>
 
-<div class="al">
-<table>
-    <td><strong class="viewt">Filter </strong></td>
-    <td><div id="sel">
-    <select id="selectmethod"> 
-        <option value="all">All</option>   <option value="nottaken">Not taken</option>    <option value="completed">Completed</option>
-    </select>&nbsp;&nbsp;&nbsp;
-    <button {{action "viewtask"}} id="but">Viewtask</button>
-</div></td>
-</table>
-</div>
-<div id="tasktable">
-</div>
 <br>
-<br>
-<div id="updatebutton"><button {{action "selection"}} id="but">update</button></div>
+<table id="float">     <td><div id="link"><button {{action "addtask"}} id="dow">Addtask</button></div></td>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <td><div id="logouttask"><button {{action "logout"}} id="dow1">Logout</button></div></td></table>
+    
 
-<br>
+<strong class="viewt">&nbsp;&nbsp;&nbsp; Filter</strong>
+
+<div class="al">
+
 <table>
     <tr>
-        <td><div id="link"><button {{action "addtask"}} id="dow">Addtask</button></div></td>
-        &nbsp; &nbsp; &nbsp; &nbsp; <td><div id="logouttask"><button {{action "logout"}} id="dow1">Logout</button></div></td>
+        <td><div id="sel">
+            <select id="selectmethod"> 
+                <option value="all">All</option>   <option value="nottaken">Not taken</option>    <option value="completed">Completed</option>
+            </select>&nbsp;&nbsp;&nbsp;
+            <button {{action "viewtask"}} id="but">Viewtask</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </td>
+
+        <td><div id="updatebutton"><button {{action "selection"}} id="but">update</button></div></td>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+                <td id="space"></td>
+
     </tr>
-
-</table>    
-
+    </table>
+    </div>
+    <div id="tasktable">
+    </div>
 </div>
 </center>

@@ -9,12 +9,14 @@ $.ajaxSetup({
 export default Ember.Controller.extend({
 	
 	d:'lo',
+
 	actions: {
 	fetch : function(){
 		Ember.$.ajax({
 			url:'http://localhost:8080/BackendTask/Fetch',
 			type:'GET',
 			dataType:'json',
+			data:{'param':'Fetch'},
 			 success:function(data){
 				var datastring=$.parseJSON(JSON.stringify(data));
 			 var res=datastring[0].result;
@@ -40,26 +42,26 @@ export default Ember.Controller.extend({
     login: function() {
       var loginUsername = $('#luname').val();
       var loginPassword = $('#lupass').val();
+	  var parameter = 'Login';
 	var check=$("#check").prop('checked')	
 	console.log(check);
+
       let Loginaccountdata = {
         'loginUsername' : loginUsername,
         'loginPassword' : loginPassword,
-		'remember' : check
+		'remember' : check,
+		'param':parameter
     };
-
-
 	var s="false";
 	var self=this;
     Ember.$.ajax({
-          url:'http://localhost:8080/BackendTask/Login',
+          url:'http://localhost:8080/BackendTask/taskcore/',
           type:'POST',
 		  dataType:'json',
           data:Loginaccountdata,
 		  xhrFields: {
 			withCredentials: true
 		},
-
 		  success:function(data){
 			  var datastring=$.parseJSON(JSON.stringify(data));
 			  var loginUsername = datastring[0].loginusername;
@@ -90,10 +92,7 @@ export default Ember.Controller.extend({
 			  $("#whole").css("margin-top", "-155px");
 			self.transitionToRoute('mytask');	  
 		  }
-
     }
-
   }
-
 });
 

@@ -25,6 +25,7 @@ export default Ember.Controller.extend({
                     data:Createaccountdata,
                 success:function(data){
                   search();
+                  console.log("Success");
                 },
                 error:function(error){
                   alert(error);

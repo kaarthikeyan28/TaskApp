@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
      Ember.$.ajax({
           url:'http://localhost:8080/BackendTask/ViewTask',
           type:'GET',
-		  data:{'selmethod':selmethod},
+		  data:{'selmethod':selmethod , 'value':'hell0'},
 		  dataType:'json',
 		  xhrFields: {
 			withCredentials: true
@@ -150,7 +150,7 @@ export default Ember.Controller.extend({
 			 
 			 else if(res1=="NOtasksavailable"){
 				 var welcomename=datastring[0].assigned;
-			$('#welcome').append('Welcome ' + welcomename);
+			$('#welcome').append('Hello  ' + welcomename);
 				 			 console.log(datastring);
 							  
 				var student = ' ';

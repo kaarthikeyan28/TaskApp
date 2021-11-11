@@ -7,7 +7,7 @@ module.exports = function(environment) {
     modulePrefix: 'emberapp',
 		podModulePrefix: 'emberapp/pods',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/ember',
     locationType: 'hash',
 
 	contentSecurityPolicy: {
